@@ -1,20 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mgmt-plane
+  name: cluster-infra
   namespace: argocd
 spec:
-  project: mgmt-plane
+  project: cluster-infra
   source:
-    repoURL: https://github.com/aben011/lab-mgmt-plane
+    repoURL: https://github.com/aben011/lab-cluster-infra
     targetRevision: refs/heads/main
-    path: .
+    path: overlays/mgmt
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
     automated:
-      enabled: true
       prune: true
       selfHeal: true
 

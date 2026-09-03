@@ -1,20 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: k3s-platform-mgmt
+  name: mgmt-cluster
   namespace: argocd
 spec:
-  project: k3s-platform-mgmt
+  project: mgmt-cluster
   source:
-    repoURL: https://github.com/aben011/lab-k3s-platform
+    repoURL: https://github.com/aben011/lab-mgmt-cluster
     targetRevision: refs/heads/main
-    path: overlays/mgmt
+    path: .
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
     automated:
-      enabled: true
       prune: true
       selfHeal: true
 

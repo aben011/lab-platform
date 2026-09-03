@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: k3s-platform-mgmt
+  name: cluster-infra
   namespace: argocd
   # Finalizer that ensures that project is not deleted until it is not referenced by any application
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  description: K3s platform project for management cluster
+  description: Cluster-wide infra for every workload cluster. Only app-repo Project trusted with cluster-scoped resources.
   sourceRepos:
-  - https://github.com/aben011/lab-k3s-platform
+  - https://github.com/aben011/lab-cluster-infra
   destinations:
   - namespace: argocd
     server: https://kubernetes.default.svc
