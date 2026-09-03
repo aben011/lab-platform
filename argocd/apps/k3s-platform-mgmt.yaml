@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k3s-platform-mgmt
+  namespace: argocd
+spec:
+  project: k3s-platform-mgmt
+  source:
+    repoURL: https://github.com/aben011/lab-k3s-platform
+    targetRevision: refs/heads/main
+    path: overlays/mgmt
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+      selfHeal: true
+
