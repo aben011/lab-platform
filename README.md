@@ -1,1 +1,1 @@
-# lab-k3s-platform
+# lab-mgmt-platform

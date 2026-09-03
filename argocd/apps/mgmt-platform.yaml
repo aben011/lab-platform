@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mgmt-platform
+  namespace: argocd
+spec:
+  project: mgmt-platform
+  source:
+    repoURL: https://github.com/aben011/lab-mgmt-platform
+    targetRevision: refs/heads/main
+    path: .
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      enabled: false
+      prune: true
+      selfHeal: true
+
