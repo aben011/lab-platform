@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mgmt-platform
+  name: mgmt-plane
   namespace: argocd
 spec:
-  project: mgmt-platform
+  project: mgmt-plane
   source:
-    repoURL: https://github.com/aben011/lab-mgmt-platform
+    repoURL: https://github.com/aben011/lab-mgmt-plane
     targetRevision: refs/heads/main
     path: .
   destination:
@@ -14,7 +14,7 @@ spec:
     namespace: argocd
   syncPolicy:
     automated:
-      enabled: false
+      enabled: true
       prune: true
       selfHeal: true
 
