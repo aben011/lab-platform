@@ -11,6 +11,7 @@ spec:
 
   sourceRepos:
     - https://github.com/aben011/lab-platform
+    - https://charts.longhorn.io/
 
   destinations:
     - namespace: "*"
