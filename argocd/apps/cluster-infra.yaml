@@ -4,16 +4,14 @@ metadata:
   name: cluster-infra
   namespace: argocd
 spec:
-  project: cluster-infra
+  project: platform
   source:
-    repoURL: https://github.com/aben011/lab-cluster-infra
+    repoURL: https://github.com/aben011/lab-platform
     targetRevision: refs/heads/main
-    path: overlays/mgmt
+    path: infra/base
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-

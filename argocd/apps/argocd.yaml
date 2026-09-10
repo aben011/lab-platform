@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mgmt-cluster
+  name: argocd
   namespace: argocd
 spec:
-  project: mgmt-cluster
+  project: platform
   source:
-    repoURL: https://github.com/aben011/lab-mgmt-cluster
+    repoURL: https://github.com/aben011/lab-platform
     targetRevision: refs/heads/main
-    path: .
+    path: argocd
     directory:
       recurse: true
   destination:
@@ -18,4 +18,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-

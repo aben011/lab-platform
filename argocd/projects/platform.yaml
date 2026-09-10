@@ -1,16 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: mgmt-cluster
+  name: platform
   namespace: argocd
   # Finalizer that ensures that project is not deleted until it is not referenced by any application
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  description: ArgoCD's own config plus management cluster tooling (Rancher, observability). Deploys only to the management cluster.
+  description: Platform-level infra and tooling for the cluster
   sourceRepos:
-  - https://github.com/aben011/lab-mgmt-cluster
+    - https://github.com/aben011/lab-platform
   destinations:
-  - namespace: argocd
-    server: https://kubernetes.default.svc
-
+    - namespace: "*"
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"

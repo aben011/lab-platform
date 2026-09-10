@@ -1,4 +1,3 @@
-# lab-mgmt-cluster
+# lab-platform
 
-GitOps config for the management cluster: ArgoCD's own Projects/Applications/ApplicationSets, plus Rancher and the centralized observability stack. Manages every other cluster; runs no application workloads itself.
-
+Platform-level infra and tooling for the cluster.
