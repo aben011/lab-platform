@@ -14,5 +14,18 @@ spec:
     gateway:
       listeners:
         web:
+          hostname: "*.ab3704-k.duckdns.org"
+          protocol: HTTP
           namespacePolicy:
             from: All
+
+        websecure:
+          port: 8443
+          hostname: "*.ab3704-k.duckdns.org"
+          protocol: HTTPS
+          namespacePolicy:
+            from: All
+          certificateRefs:
+          - kind: Secret
+            name: lab-gateway-tls
+          mode: Terminate
