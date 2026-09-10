@@ -1,6 +1,12 @@
 # lab-platform
 
-Platform-level infra and tooling for the cluster.
+Platform-level infra and cluster tooling.
+
+## Bootstrapping ArgoCD
+
+```bash
+kubectl apply --kustomize='argocd-controller'
+```
 
 ## Secret: lab-gateway-tls (self-signed, temporary)
 

@@ -5,12 +5,15 @@ metadata:
   namespace: argocd
 spec:
   project: platform
+
   source:
     repoURL: https://github.com/aben011/lab-platform
     targetRevision: main
     path: infra/base
+
   destination:
     server: https://kubernetes.default.svc
+
   syncPolicy:
     automated:
       prune: true
