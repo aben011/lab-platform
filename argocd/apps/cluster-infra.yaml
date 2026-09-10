@@ -7,7 +7,7 @@ spec:
   project: platform
   source:
     repoURL: https://github.com/aben011/lab-platform
-    targetRevision: refs/heads/main
+    targetRevision: main
     path: infra/base
   destination:
     server: https://kubernetes.default.svc

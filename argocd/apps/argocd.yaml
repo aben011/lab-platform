@@ -7,10 +7,8 @@ spec:
   project: platform
   source:
     repoURL: https://github.com/aben011/lab-platform
-    targetRevision: refs/heads/main
+    targetRevision: main
     path: argocd
-    directory:
-      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
@@ -18,3 +16,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
