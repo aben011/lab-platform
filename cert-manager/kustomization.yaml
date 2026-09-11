@@ -1,0 +1,33 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - x.ab3704-k.duckdns.org-cert.yaml
+
+helmCharts:
+  - name: cert-manager
+    version: v1.21.1
+    repo: oci://quay.io/jetstack/charts
+    releaseName: cert-manager
+    namespace: cert-manager
+    valuesInline:
+      crds:
+        enabled: true
+      # Nameservers for DNS01 Self Check
+      # Appears upstream is blocking 1.1.1.1 and 8.8.8.8
+      dns01RecursiveNameservers: "1.0.0.1:53,8.8.4.4:53"
+
+  - name: cert-manager-duckdns-webhook
+    version: 1.1.3
+    repo: https://csp33.github.io/cert-manager-duckdns-webhook
+    releaseName: cert-manager-duckdns-webhook
+    namespace: cert-manager
+    valuesInline:
+      token:
+        existingSecretName: duckdns-token
+      clusterIssuer:
+        production:
+          create: true
+        staging:
+          create: false

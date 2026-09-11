@@ -27,5 +27,5 @@ spec:
             from: All
           certificateRefs:
           - kind: Secret
-            name: lab-gateway-tls
+            name: x.ab3704-k.duckdns.org-secret
           mode: Terminate
