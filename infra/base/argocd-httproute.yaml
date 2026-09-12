@@ -8,7 +8,7 @@ spec:
     - name: traefik-gateway
       namespace: kube-system
   hostnames:
-    - argocd.ab3704-k.duckdns.org
+    - argocd.ab3704.duckdns.org
   rules:
     - backendRefs:
         - name: argocd-server

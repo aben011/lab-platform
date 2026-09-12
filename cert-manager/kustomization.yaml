@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - namespace.yaml
-  - x.ab3704-k.duckdns.org-cert.yaml
+  - x.ab3704.duckdns.org-cert.yaml
 
 helmCharts:
   - name: cert-manager

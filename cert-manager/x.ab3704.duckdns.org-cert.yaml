@@ -1,14 +1,14 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: x.ab3704-k.duckdns.org-cert
+  name: x.ab3704.duckdns.org-cert
   namespace: kube-system
 spec:
-  secretName: x.ab3704-k.duckdns.org-secret
+  secretName: x.ab3704.duckdns.org-secret
   issuerRef:
     name: duckdns-letsencrypt-prod
     kind: ClusterIssuer
   privateKey:
     algorithm: ECDSA
   dnsNames:
-    - "*.ab3704-k.duckdns.org"
+    - "*.ab3704.duckdns.org"

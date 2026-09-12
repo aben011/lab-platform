@@ -14,18 +14,18 @@ spec:
     gateway:
       listeners:
         web:
-          hostname: "*.ab3704-k.duckdns.org"
+          hostname: "*.ab3704.duckdns.org"
           protocol: HTTP
           namespacePolicy:
             from: All
 
         websecure:
           port: 8443
-          hostname: "*.ab3704-k.duckdns.org"
+          hostname: "*.ab3704.duckdns.org"
           protocol: HTTPS
           namespacePolicy:
             from: All
           certificateRefs:
           - kind: Secret
-            name: x.ab3704-k.duckdns.org-secret
+            name: x.ab3704.duckdns.org-secret
           mode: Terminate
