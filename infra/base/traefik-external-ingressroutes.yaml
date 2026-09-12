@@ -1,0 +1,67 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nas
+  namespace: infra
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`nas.ab3704.duckdns.org`)
+      kind: Rule
+      services:
+        - name: nas-external
+          port: 443
+          scheme: https
+          serversTransport: tls-insecure-transport
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: opnsense
+  namespace: infra
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`opnsense.ab3704.duckdns.org`)
+      kind: Rule
+      services:
+        - name: opnsense-external
+          port: 4443
+          scheme: https
+          serversTransport: tls-insecure-transport
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: pihole
+  namespace: infra
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`pihole.ab3704.duckdns.org`)
+      kind: Rule
+      services:
+        - name: pihole-external
+          port: 443
+          scheme: https
+          serversTransport: tls-insecure-transport
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: proxmox
+  namespace: infra
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`proxmox.ab3704.duckdns.org`)
+      kind: Rule
+      services:
+        - name: proxmox-external
+          port: 8006
+          scheme: https
+          serversTransport: tls-insecure-transport

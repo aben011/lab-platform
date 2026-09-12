@@ -6,10 +6,13 @@ metadata:
 spec:
   valuesContent: |-
     providers:
-      kubernetesGateway:
+      kubernetesCRD:
         enabled: true
+        allowExternalNameServices: true
       kubernetesIngress:
         enabled: false
+      kubernetesGateway:
+        enabled: true
 
     gateway:
       listeners:

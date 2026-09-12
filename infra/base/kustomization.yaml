@@ -2,6 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - argocd-httproute.yaml
+  - infra-namespace.yaml
   - local-path-retain-storageclass.yaml
   - longhorn-httproute.yaml
+  - traefik-external-ingressroutes.yaml
+  - traefik-external-services.yaml
   - traefik-gateway-helmchartconfig.yaml
+  - traefik-tls-insecure-transport.yaml
+  - traefik-tlsstore.yaml
