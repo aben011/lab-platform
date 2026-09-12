@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
   - argocd-httproute.yaml
   - local-path-retain-storageclass.yaml
+  - longhorn-httproute.yaml
   - traefik-gateway-helmchartconfig.yaml
