@@ -4,9 +4,11 @@ metadata:
   name: x.ab3704-k.duckdns.org-cert
   namespace: kube-system
 spec:
-  dnsNames:
-    - "*.ab3704-k.duckdns.org"
+  secretName: x.ab3704-k.duckdns.org-secret
   issuerRef:
     name: duckdns-letsencrypt-prod
     kind: ClusterIssuer
-  secretName: x.ab3704-k.duckdns.org-secret
+  privateKey:
+    algorithm: ECDSA
+  dnsNames:
+    - "*.ab3704-k.duckdns.org"
